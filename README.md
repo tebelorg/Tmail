@@ -11,5 +11,8 @@ TA.Mail is a mailbot to act on incoming emails and perform mass emailing
 # To Use
 // placeholder for to use section
 
+# Pipeline
+// placeholder for pipeline section
+
 # License
 TA.Mail is open-source software released under the MIT license
