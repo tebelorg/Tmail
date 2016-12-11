@@ -50,8 +50,8 @@ $headers  = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
 $headers .= 'From: ' . $from . "\r\n";
 
-// customise result output below for email success and failure
-// first block to show output as raw text, second block as html
+// customise result output below to show email success or failure
+// first block is to show output as raw text, second block as html
 if ($_GET['OUTPUT']=="TEXT")
         {
         if (mail($to,$subject,$message,$headers))
