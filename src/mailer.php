@@ -1,6 +1,6 @@
 <?php
 
-/* MAILER API FOR AUTO-SENDING EMAILS IN TA.MAIL ~ TEBEL.SG */
+/* MAILER REST API FOR TA.MAIL TO AUTO-SEND EMAILS ~ TEBEL.SG */
 
 // address email recipient by name if recipient name provided
 if ($_GET['SENDNAME']=="")
