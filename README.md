@@ -1,5 +1,5 @@
 # TA.Mail
-TA.Mail is a mailbot to act on incoming emails and perform mass emailing
+TA.Mail is a mailbot to act on incoming emails or perform mass emailing
 
 # Why This
 1. Because a mailbot can act on incoming mails, by replying or calling other automation APIs accordingly
