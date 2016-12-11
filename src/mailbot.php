@@ -22,30 +22,33 @@ function process_email($email_content) {
 	$email_subject = strtoupper(str_replace(" ","",get_subject($email_content)));
 	$email_subject .= strtoupper(str_replace(" ","",get_message($email_content)));
 
-	if (strpos($email_subject, "BANKBALANCE") !== false)
-	{
-		$_GET['SERVICE']="BANKBALANCE"; return call_service();
-	}
-	else if (strpos($email_subject, "FOODNEARBY") !== false)
-	{
-		if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
-		$_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
-		$_GET['SERVICE']="FOODNEARBY"; return call_service();
-	}	
-	else if (strpos($email_subject, "DELIVEROO") !== false)
-	{
-		$_GET['MESSAGE']="Ordering food from Deliveroo is not yet enabled.";
-		$_GET['SERVICE']="SENDMAIL"; return call_service();
-	}
-	else 
-	{	
-		$_GET['MESSAGE']="Your email does not have actionable instructions.";
-		$_GET['SERVICE']="SENDMAIL"; return call_service();
-	}
+// logic section to parse email intention before calling service runner
+// set parameters accordingly before call_service() to trigger runner
+
+        if (strpos($email_subject, "BANKBALANCE") !== false)
+        {
+                $_GET['SERVICE']="BANKBALANCE"; return call_service();
+        }
+        else if (strpos($email_subject, "FOODNEARBY") !== false)
+        {
+                if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
+                $_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
+                $_GET['SERVICE']="FOODNEARBY"; return call_service();
+        }
+        else if (strpos($email_subject, "DELIVEROO") !== false)
+        {
+                $_GET['MESSAGE']="Ordering food from Deliveroo is switched off.";
+                $_GET['SERVICE']="SENDMAIL"; return call_service();
+        }
+        else
+        {
+                $_GET['MESSAGE']="Your email has no actionable instruction.";
+                $_GET['SERVICE']="SENDMAIL"; return call_service();
+        }
 }
 
 /* CALL SERVICE */
-function call_service() {
+function call_service() { // runner script to act on service parameters
         ob_start(); include('/fullpath_on_your_server/run.php');
 	$php_result = ob_get_contents(); ob_end_clean(); return $php_result;
 }
