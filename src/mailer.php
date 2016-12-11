@@ -44,7 +44,8 @@ $message = "
 "<p></p>
 <pre><span style=\"font-family: arial, helvetica, sans-serif; font-size: small;\">Kind Regards,<br><span style=\"color: #000000;\"><strong><em>Your Name</em></strong></span></span></pre></p>
 </body>
-</html>";}
+</html>";
+	}
 
 $headers  = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";

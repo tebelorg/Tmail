@@ -1,26 +1,37 @@
 #!/usr/local/bin/php -q
 <?php
 
-/* MAILBOT SCRIPT FOR AUTO-RESPONDING TO EMAILS ~ TEBEL.SG */
+/* MAILBOT SCRIPT FOR TA.MAIL TO AUTO-RESPOND TO EMAILS ~ TEBEL.SG */
 
+$logdate = date('Y-m-d H:i:s') . "\n"; // for tracking mailbot processing date and start time
+$logfile = fopen('/fullpath_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logdate); fclose($logfile);
+
+// read entire email stream into variable for processing
 $iostream = fopen("php://stdin", 'r'); $email = "";
 while (!feof($iostream)) $email .= fread($iostream, 1024); fclose($iostream);
 
+// extract items from email and call processing function
 $logentry = get_from($email) . ", " . get_to($email) . ", " . get_subject($email) . "\n";
 $logentry .= get_message($email) . "\n" . process_email($email) . "\n\n";
-$logfile = fopen('/fullpath/mailbot.log', 'a'); fwrite($logfile, $logentry); fclose($logfile);
+
+// save details of incoming email and outcome to logfile
+$logfile = fopen('/fullpath_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logentry); fclose($logfile);
 
 /* PROCESS EMAIL */
 function process_email($email_content) {
 	$email_subject = strtoupper(str_replace(" ","",get_subject($email_content)));
 	$email_subject .= strtoupper(str_replace(" ","",get_message($email_content)));
 
-    if (strpos($email_subject, "FOODNEARBY") !== false)
-    {
-        if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
-        $_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
-        $_GET['SERVICE']="FOODNEARBY"; return call_service();
-    }	
+        if (strpos($email_subject, "BANKBALANCE") !== false)
+        {
+                $_GET['SERVICE']="BANKBALANCE"; return call_service();
+        }
+        else if (strpos($email_subject, "FOODNEARBY") !== false)
+	{
+		if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
+		$_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
+		$_GET['SERVICE']="FOODNEARBY"; return call_service();
+	}	
 	else if (strpos($email_subject, "DELIVEROO") !== false)
 	{
 		$_GET['MESSAGE']="Ordering food from Deliveroo is not yet enabled.";
@@ -28,14 +39,14 @@ function process_email($email_content) {
 	}
 	else 
 	{	
-        $_GET['MESSAGE']="Your email does not have actionable instructions.";
-        $_GET['SERVICE']="SENDMAIL"; return call_service();
+	        $_GET['MESSAGE']="Your email does not have actionable instructions.";
+        	$_GET['SERVICE']="SENDMAIL"; return call_service();
 	}
 }
 
 /* CALL SERVICE */
 function call_service() {
-        ob_start(); include('/fullpath/run.php');
+        ob_start(); include('/fullpath_on_your_server/run.php');
 	$php_result = ob_get_contents(); ob_end_clean(); return $php_result;
 }
 
