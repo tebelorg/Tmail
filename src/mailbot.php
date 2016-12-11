@@ -22,11 +22,11 @@ function process_email($email_content) {
 	$email_subject = strtoupper(str_replace(" ","",get_subject($email_content)));
 	$email_subject .= strtoupper(str_replace(" ","",get_message($email_content)));
 
-        if (strpos($email_subject, "BANKBALANCE") !== false)
-        {
-                $_GET['SERVICE']="BANKBALANCE"; return call_service();
-        }
-        else if (strpos($email_subject, "FOODNEARBY") !== false)
+	if (strpos($email_subject, "BANKBALANCE") !== false)
+	{
+		$_GET['SERVICE']="BANKBALANCE"; return call_service();
+	}
+	else if (strpos($email_subject, "FOODNEARBY") !== false)
 	{
 		if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
 		$_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
@@ -39,8 +39,8 @@ function process_email($email_content) {
 	}
 	else 
 	{	
-	        $_GET['MESSAGE']="Your email does not have actionable instructions.";
-        	$_GET['SERVICE']="SENDMAIL"; return call_service();
+		$_GET['MESSAGE']="Your email does not have actionable instructions.";
+		$_GET['SERVICE']="SENDMAIL"; return call_service();
 	}
 }
 
