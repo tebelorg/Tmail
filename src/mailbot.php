@@ -25,26 +25,26 @@ function process_email($email_content) {
 // logic section to parse email intention before calling service runner
 // set parameters accordingly before call_service() to trigger runner
 
-        if (strpos($email_subject, "BANKBALANCE") !== false)
-        {
-                $_GET['SERVICE']="BANKBALANCE"; return call_service();
-        }
-        else if (strpos($email_subject, "FOODNEARBY") !== false)
-        {
-                if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
-                $_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
-                $_GET['SERVICE']="FOODNEARBY"; return call_service();
-        }
-        else if (strpos($email_subject, "DELIVEROO") !== false)
-        {
-                $_GET['MESSAGE']="Ordering food from Deliveroo is switched off.";
-                $_GET['SERVICE']="SENDMAIL"; return call_service();
-        }
-        else
-        {
-                $_GET['MESSAGE']="Your email has no actionable instruction.";
-                $_GET['SERVICE']="SENDMAIL"; return call_service();
-        }
+	if (strpos($email_subject, "BANKBALANCE") !== false)
+	{
+		$_GET['SERVICE']="BANKBALANCE"; return call_service();
+	}
+	else if (strpos($email_subject, "FOODNEARBY") !== false)
+	{
+		if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
+		$_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
+		$_GET['SERVICE']="FOODNEARBY"; return call_service();
+	}
+	else if (strpos($email_subject, "DELIVEROO") !== false)
+	{
+		$_GET['MESSAGE']="Ordering food from Deliveroo is switched off.";
+		$_GET['SERVICE']="SENDMAIL"; return call_service();
+	}
+	else
+	{
+		$_GET['MESSAGE']="Your email has no actionable instruction.";
+		$_GET['SERVICE']="SENDMAIL"; return call_service();
+	}
 }
 
 /* CALL SERVICE */
