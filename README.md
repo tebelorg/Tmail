@@ -11,7 +11,7 @@ TA.Mail is a mailbot to act on incoming emails or perform mass emailing
 3. Modify service actions in run.php to act on email intent
 
 # To Use
-Pipe your mailbot email account to mailbot.php, for eg through cPanel email filters
+Pipe your email account to mailbot.php (chmod 700), for eg through cPanel email filter
 ```
 |/fullpath_on_your_server/mailbot.php
 ```
@@ -21,6 +21,7 @@ Feature|Details
 :-----:|:------
 Mass Emailing|engine for handling mailing list
 Enhancements|improve logic and data handling
+New Endpoints|beyond email, web automation, JSON
 
 # License
 TA.Mail is open-source software released under the MIT license
