@@ -4,7 +4,7 @@
 /* MAILBOT SCRIPT FOR TA.MAIL TO AUTO-RESPOND TO EMAILS ~ TEBEL.SG */
 
 $logdate = date('Y-m-d H:i:s') . "\n"; // for tracking mailbot processing date and start time
-$logfile = fopen('/fullpath_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logdate); fclose($logfile);
+$logfile = fopen('/full_path_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logdate); fclose($logfile);
 
 // read entire email stream into variable for processing
 $iostream = fopen("php://stdin", 'r'); $email = "";
@@ -15,7 +15,7 @@ $logentry = get_from($email) . ", " . get_to($email) . ", " . get_subject($email
 $logentry .= get_message($email) . "\n" . process_email($email) . "\n\n";
 
 // save details of incoming email and outcome to logfile
-$logfile = fopen('/fullpath_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logentry); fclose($logfile);
+$logfile = fopen('/full_path_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logentry); fclose($logfile);
 
 /* PROCESS EMAIL */
 function process_email($email_content) {
@@ -49,7 +49,7 @@ function process_email($email_content) {
 
 /* CALL SERVICE */
 function call_service() { // runner script to act on service parameters
-        ob_start(); include('/fullpath_on_your_server/run.php');
+        ob_start(); include('/full_path_on_your_server/run.php');
 	$php_result = ob_get_contents(); ob_end_clean(); return $php_result;
 }
 
