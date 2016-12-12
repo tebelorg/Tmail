@@ -8,7 +8,7 @@ TA.Mail is a mailbot to act on incoming emails or perform mass emailing
 # Set Up
 1. Update mailer.php with your email, name, signature etc
 2. Modify mailbot.php to your server path and service logic
-3. Modify service actions in run.php to act on email intent
+3. Modify service actions in run.php to act on email intents
 
 # To Use
 Pipe your email account to mailbot.php (chmod 700), for eg through cPanel email filter
@@ -20,7 +20,7 @@ Pipe your email account to mailbot.php (chmod 700), for eg through cPanel email 
 Feature|Details
 :-----:|:------
 Mass Emailing|engine for handling mailing list
-Enhancements|improve logic and data handling
+Enhancements|improve logic and data management
 New Endpoints|beyond email, web automation, JSON
 
 # License
