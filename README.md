@@ -19,7 +19,7 @@ Pipe your email account to mailbot.php (chmod 700), for eg through cPanel email 
 # Pipeline
 Feature|Details
 :-----:|:------
-Mass Emailing|engine for handling mailing list
+Mass Emailing|engine for handling mailing lists
 Enhancements|improve logic and data management
 New Endpoints|beyond email, web automation, JSON
 
