@@ -15,6 +15,7 @@ $email_message_file = fopen($email_message,'r') or die("ERROR - cannot open " . 
 fclose($email_message_file);
 
 // loop to send email message to each recipient in the recipient list, one by one
+// for sophisticated open-source newsletter management consider https://www.phplist.org
 while (!feof($recipient_list_file)) send(trim(fgets($recipient_list_file)),$email_message); fclose($recipient_list_file);
 
 // function to assign email parameters and call sendmail_service to send email
