@@ -22,8 +22,9 @@ php massmail.php list.csv mail.html
 # Pipeline
 Feature|Details
 :-----:|:------
-Enhancements|improve logic and data management
-New Endpoints|beyond email, web automation, JSON
+Add PHPMailer|allow attachments, and mailing on Windows
+New Endpoints|for REST API service calls to webservices
+Enhancements|improve decision-making and data management
 
 # License
 TA.Mail is open-source software released under the MIT license
