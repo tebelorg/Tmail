@@ -65,6 +65,7 @@ else
         if (mail($to,$subject,$message,$headers))
         	echo "<h1><center><br><br><br><br><br><br><br><br>".$subject." mail sent successfully.</center></h1>";
         else
-        	echo "<h1><center><br><br><br><br><br><br><br><br>".$subject." mail not sent through.</center></h1>";    	  }
+        	echo "<h1><center><br><br><br><br><br><br><br><br>".$subject." mail not sent through.</center></h1>";
+	}
 
 ?>
