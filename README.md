@@ -2,8 +2,8 @@
 TA.Mail is a mailbot to act on incoming emails or perform mass emailing
 
 # Why This
-1. A mailbot can act on incoming emails, to reply or call other automation APIs accordingly
-2. For whatever reasons (eg data security), you prefer not to use email marketing services
+- A mailbot can act on incoming emails, to reply or call other automation APIs accordingly
+- For whatever reasons (eg data security), you prefer not to use email marketing services
 
 # Set Up
 1. Update mailer.php & massmail.php with your email, name, etc
