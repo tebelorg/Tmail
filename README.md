@@ -1,7 +1,7 @@
 # TA.Mail
 TA.Mail is a mailbot to act on incoming emails or perform mass emailing
 
-![Sample Mail](https://github.com/tebelorg/TA.Mail/blob/master/sample.jpg)
+![Sample Mail](https://github.com/tebelorg/TA.Mail/raw/master/sample.jpg)
 
 # Why This
 - A mailbot can act on incoming emails, to reply or call other automation APIs accordingly
