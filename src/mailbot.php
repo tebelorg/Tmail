@@ -40,6 +40,11 @@ function process_email($email_content) {
 		$_GET['MESSAGE']="Ordering food from Deliveroo is switched off.";
 		$_GET['SERVICE']="SENDMAIL"; return call_service();
 	}
+        else if (strpos($email_subject, "RESTAPI") !== false)
+        {
+                $_GET['RESTURL']= str_replace("restapi ","",str_replace("RESTAPI ","",get_subject($email_content)));
+                $_GET['SERVICE']="RESTAPI"; return call_service();
+        }
 	else
 	{
 		$_GET['MESSAGE']="Your email has no actionable instruction.";
