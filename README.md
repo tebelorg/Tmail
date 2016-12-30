@@ -25,7 +25,6 @@ php massmail.php list.csv mail.html attachment.pdf
 # Pipeline
 Feature|Details
 :-----:|:------
-New Endpoints|for REST API service calls to webservices
 Enhancements|improve decision-making and data management
 
 # License
