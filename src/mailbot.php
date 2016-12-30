@@ -25,11 +25,7 @@ function process_email($email_content) {
 // logic section to parse email intention before calling service runner
 // set parameters accordingly before call_service() to trigger runner
 
-	if (strpos($email_subject, "BANKBALANCE") !== false)
-	{
-		$_GET['SERVICE']="BANKBALANCE"; return call_service();
-	}
-	else if (strpos($email_subject, "FOODNEARBY") !== false)
+	if (strpos($email_subject, "FOODNEARBY") !== false)
 	{
 		if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
 		$_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
@@ -53,8 +49,8 @@ function process_email($email_content) {
 }
 
 /* CALL SERVICE */
-function call_service() { // runner script to act on service parameters
-        ob_start(); include('/full_path_on_your_server/run.php');
+function call_service() { // service runner to act on service parameters
+        ob_start(); include('/full_path_on_your_server/service.php');
 	$php_result = ob_get_contents(); ob_end_clean(); return $php_result;
 }
 
