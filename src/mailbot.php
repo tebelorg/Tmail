@@ -17,36 +17,40 @@ $logentry .= get_message($email) . "\n" . process_email($email) . "\n\n";
 // save details of incoming email and outcome to logfile
 $logfile = fopen('/full_path_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logentry); fclose($logfile);
 
-/* PROCESS EMAIL */
+/* PROCESS EMAIL - logic to parse email intention before setting service parameters */
 function process_email($email_content) {
-	$email_subject = strtoupper(str_replace(" ","",get_subject($email_content)));
-	$email_subject .= strtoupper(str_replace(" ","",get_message($email_content)));
+$parsed_content = strtoupper(str_replace(" ","",get_subject($email_content)));
+$parsed_content .= strtoupper(str_replace(" ","",get_message($email_content)));
 
-// logic section to parse email intention before calling service runner
-// set parameters accordingly before call_service() to trigger runner
+if (strpos($parsed_content, "FOODNEARBY") !== false)
+        set_service("FOODNEARBY",$email_content);
 
-	if (strpos($email_subject, "FOODNEARBY") !== false)
-	{
-		if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6)))
-		$_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($email_content))),-6);
-		$_GET['SERVICE']="FOODNEARBY"; return call_service();
-	}
-	else if (strpos($email_subject, "DELIVEROO") !== false)
-	{
-		$_GET['MESSAGE']="Ordering food from Deliveroo is switched off.";
-		$_GET['SERVICE']="SENDMAIL"; return call_service();
-	}
-        else if (strpos($email_subject, "RESTAPI") !== false)
-        {
-                $_GET['RESTURL']= str_replace("restapi ","",str_replace("RESTAPI ","",get_subject($email_content)));
-                $_GET['SERVICE']="RESTAPI"; return call_service();
-        }
-	else
-	{
-		$_GET['MESSAGE']="Your email has no actionable instruction.";
-		$_GET['SERVICE']="SENDMAIL"; return call_service();
-	}
-}
+else if (strpos($parsed_content, "DELIVEROO") !== false)
+        set_service("DELIVEROO",$email_content);
+
+else if (strpos($parsed_content, "RESTAPI") !== false)
+        set_service("RESTAPI",$email_content);
+
+else set_service("NOACTION",$email_content);}
+
+/* SET SERVICE - set parameters before using call_service() to trigger runner */
+function set_service($service_intent,$service_request) {switch ($service_intent) {
+case "FOODNEARBY":
+        if (ctype_digit(substr(strtoupper(str_replace(" ","",get_subject($service_request))),-6)))
+        $_GET['POSTAL']=substr(strtoupper(str_replace(" ","",get_subject($service_request))),-6);
+        $_GET['SERVICE']="FOODNEARBY"; return call_service(); break;
+
+case "DELIVEROO":
+        $_GET['MESSAGE']="Ordering food from Deliveroo is switched off.";
+        $_GET['SERVICE']="SENDMAIL"; return call_service(); break;
+
+case "RESTAPI":
+        $_GET['RESTURL']= str_replace("restapi ","",str_replace("RESTAPI ","",get_subject($service_request)));
+        $_GET['SERVICE']="RESTAPI"; return call_service(); break;
+
+case "NOACTION":
+        $_GET['MESSAGE']="Your email has no actionable instruction.";
+        $_GET['SERVICE']="SENDMAIL"; return call_service(); break;}}
 
 /* CALL SERVICE */
 function call_service() { // service runner to act on service parameters
