@@ -25,7 +25,7 @@ php massmail.php list.csv mail.html attachment.pdf
 # Pipeline
 Feature|Details
 :-----:|:------
-Enhancements|improve decision-making and data management
+Enhancements|feel free to review and suggest new features
 
 # License
 TA.Mail is open-source software released under the MIT license
