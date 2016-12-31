@@ -112,7 +112,7 @@ if ($_GET['OUTPUT']=="TEXT")
         if (mail($to,$subject,$message,$headers))
 		echo $subject . " mail sent successfully to " . trim($to) . "\n";
         else
-		echo $subject . " mail not sent through to " . trim($to) . " - " . $mail->ErrorInfo . "\n";
+		echo $subject . " mail not sent through to " . trim($to) . "\n";
 	}
 else
 	{
@@ -121,7 +121,7 @@ else
 		" mail sent successfully to " . trim($to) . "</center></h1>";
         else
 		echo "<h1><center><br><br><br><br><br><br><br><br>" . $subject . 
-		" mail not sent through to " . trim($to) . " - " . $mail->ErrorInfo . "</center></h1>";
+		" mail not sent through to " . trim($to) . "</center></h1>";
 	}
 // OPTION 2 - END OF BLOCK
 */
