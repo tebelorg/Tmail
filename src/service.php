@@ -1,6 +1,6 @@
 <?php
 
-/* RUNNER SCRIPT FOR SERVING SERVICE REQUESTS ~ TEBEL.SG */
+/* RUNNER SCRIPT FOR SERVING SERVICE REQUESTS ~ TEBEL.ORG */
 
 // call services accordingly to SERVICE parameter
 if ($_GET['SERVICE']=="SENDMAIL") sendmail_service();

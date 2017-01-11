@@ -1,6 +1,6 @@
 <?php
 
-/* MASSMAIL SCRIPT FOR TA.MAIL TO MASS-SEND EMAILS ~ TEBEL.SG */
+/* MASSMAIL SCRIPT FOR TA.MAIL TO MASS-SEND EMAILS ~ TEBEL.ORG */
 
 // check for first parameter - file containing email recipients, one recipient per line
 if ($argv[1]=="") die("ERROR - Recipient list file missing for first parameter\n"); $recipient_list = $argv[1];
