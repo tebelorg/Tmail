@@ -76,6 +76,10 @@ else	$mail->addAddress(trim($to));
 // echo trim($from) . "\n"; echo $from_email ."\n"; echo $from_name . "\n";
 // echo trim($to) . "\n"; echo $to_email . "\n"; echo $to_name . "\n"; die ("");
 
+// only if applicable and required, explicitly setup DKIM (for identity authentication by receiver's mail server)
+// $mail->DKIM_domain = "your_domain"; $mail->DKIM_private = "/full_path_on_your_server/private_key";
+// $mail->DKIM_selector = "your_selector"; $mail->DKIM_identity = $mail->From; $mail->DKIM_passphrase = "";
+
 $mail->Subject = $subject; $mail->msgHTML($message, dirname(__FILE__));
 if ($_GET['ATTACHMENT']!="") $mail->addAttachment($_GET['ATTACHMENT']);
 
