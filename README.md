@@ -23,7 +23,7 @@ Mass email example - first parameter is recipient list with email addresses on s
 php massmail.php list.csv mail.html attachment.pdf
 ```
 
-Mail API example - parameters to send email by triggering from webservice or web browser
+Mail API example - parameters to send email by triggering from webservice or web browser.  Important for you to considering implementing your own secret key parameter in order to prevent the your mailer API from being abused.
 ```
 your_website_url/mailer.php?SENDNAME=&SENDTO=&SENDFROM=&SUBJECT=&MESSAGE=
 ```
