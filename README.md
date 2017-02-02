@@ -17,9 +17,15 @@ Mailbot example - pipe your email account to mailbot.php (chmod 700), eg using c
 ```
 |/full_path_on_your_server/mailbot.php
 ```
+
 Mass email example - first parameter is recipient list with email addresses on separate lines, second parameter is message in html or text format, third parameter is optional for specifying file to be attached with the email
 ```
 php massmail.php list.csv mail.html attachment.pdf
+```
+
+Mail API example - parameters to send email by triggering from webservice or web browser
+```
+your_website_url/mailer.php?SENDNAME=&SENDTO=&SENDFROM=&SUBJECT=&MESSAGE=
 ```
 
 # Pipeline
