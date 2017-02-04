@@ -65,12 +65,14 @@ if (strpos($from, '<') !== false) {
 	$mail->setFrom($from_email,$from_name);}
 else	$mail->setFrom(trim($from));
 
-if (strpos($to, '<') !== false) {
-	$to_name = trim(substr($to,0,strpos($to,'<')));
-	$to_email = trim(substr($to,strpos($to,'<')+1));
-	$to_email = trim(str_replace('>','',$to_email));
-	$mail->addAddress($to_email,$to_name);}
-else	$mail->addAddress(trim($to));
+// for loop to manage multiple to emails separated by ,
+$to_list = explode(',',$to); foreach ($to_list as $to_item) {
+if (strpos($to_item, '<') !== false) {
+        $to_name = trim(substr($to_item,0,strpos($to_item,'<')));
+        $to_email = trim(substr($to_item,strpos($to_item,'<')+1));
+        $to_email = trim(str_replace('>','',$to_email));
+        $mail->addAddress($to_email,$to_name);}
+else    $mail->addAddress(trim($to_item));}
 
 // for debugging above block to extract email and name eg: Name <name@gmail.com>
 // echo trim($from) . "\n"; echo $from_email ."\n"; echo $from_name . "\n";
