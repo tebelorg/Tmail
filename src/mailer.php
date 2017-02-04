@@ -2,6 +2,9 @@
 
 /* MAILER REST API FOR TA.MAIL TO AUTO-SEND EMAILS ~ TEBEL.ORG */
 
+// secret key to mitigate abuse of spamming using mailer api
+if ($_GET['APIKEY']!="random_long_string_mailer_api_key") die("ERROR - invalid API secret key");
+
 // address email recipient by name if recipient name provided
 if ($_GET['SENDNAME']=="")
 	$name = "";
