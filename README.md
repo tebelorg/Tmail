@@ -23,6 +23,12 @@ Mass email example - first parameter is recipient list with email addresses on s
 php massmail.php list.csv mail.html attachment.pdf
 ```
 
+Mass email example (within a PHP script) - assign the variables accordingly and include massmail.php
+```
+$argv[1] = "list.csv"; $argv[2] = "mail.html"; $argv[3] = "attachment.pdf"; ob_start();
+include('massmail.php'); $mail_result = ob_get_contents(); ob_end_clean(); echo $mail_result;
+```
+
 Mail API example - parameters to send email by triggering from webservice or web browser. Important to set your secret APIKEY parameter, to prevent your mailer instance from being abused through API.
 ```
 your_website_url/mailer.php?APIKEY=&SENDNAME=&SENDTO=&SENDFROM=&SUBJECT=&MESSAGE=
