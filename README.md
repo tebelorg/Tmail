@@ -24,7 +24,7 @@ php massmail.php list.csv mail.html attachment.pdf
 ```
 
 Mass email example (within a PHP script) - assign the variables accordingly and include massmail.php
-```
+```php
 $argv[1] = "list.csv"; $argv[2] = "mail.html"; $argv[3] = "attachment.pdf"; ob_start();
 include('massmail.php'); $mail_result = ob_get_contents(); ob_end_clean(); echo $mail_result;
 ```
