@@ -1,5 +1,5 @@
 # TA.Mail
-TA.Mail is a mailbot to act on incoming emails or perform mass emailing
+TA.Mail is a mailbot to act on incoming emails or perform mass emailing - http://tebel.org
 
 ![Sample Mail](https://github.com/tebelorg/TA.Mail/raw/master/sample.jpg)
 
