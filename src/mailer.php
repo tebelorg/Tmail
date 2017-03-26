@@ -25,7 +25,7 @@ else
 
 // set default email subject if email subject not provided
 if ($_GET['SUBJECT']=="")
-	$subject = "Email Service";
+	$subject = "Your Subject";
 else
 	$subject = $_GET['SUBJECT'];
 
@@ -44,8 +44,7 @@ $message = "
 <body>
 " . $name . "
 <p>" . $custom_message . "<br>" .
-"<p></p>
-<pre><span style=\"font-family: arial, helvetica, sans-serif; font-size: small;\">Kind Regards,<br><span style=\"color: #000000;\"><strong><em>Your Name</em></strong></span></span></pre></p>
+"<span style=\"font-family: arial, helvetica, sans-serif; font-size: small;\">Kind Regards,<br><span style=\"color: #000000;\"><strong><em>Your Name</em></strong></span></span></p>
 </body>
 </html>";
 	}
