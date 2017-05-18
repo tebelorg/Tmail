@@ -1,7 +1,7 @@
 #!/usr/local/bin/php -q
 <?php
 
-/* MAILBOT SCRIPT FOR TA.MAIL TO AUTO-RESPOND TO EMAILS ~ TEBEL.ORG */
+/* MAILBOT SCRIPT FOR TMAIL TO AUTO-RESPOND TO EMAILS ~ TEBEL.ORG */
 
 $logdate = date('Y-m-d H:i:s') . "\n"; // for tracking mailbot processing date and start time
 $logfile = fopen('/full_path_on_your_server/mailbot.log', 'a'); fwrite($logfile, $logdate); fclose($logfile);
