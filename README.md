@@ -1,7 +1,7 @@
-# TA.Mail
-TA.Mail is a mailbot to massmail or act on incoming emails ~ http://tebel.org
+# Tmail
+Tmail is a mailbot to massmail or act on incoming emails ~ http://tebel.org
 
-![Sample Mail](https://github.com/tebelorg/TA.Mail/raw/master/sample.jpg)
+![Sample Mail](https://github.com/tebelorg/Tmail/raw/master/sample.jpg)
 
 # Why This
 - A mailbot can act on incoming emails, to reply or call other automation APIs accordingly
@@ -42,4 +42,4 @@ Feature|Details
 Enhancements|feel free to review and suggest new features
 
 # License
-TA.Mail is open-source software released under the MIT license
+Tmail is open-source software released under the MIT license
