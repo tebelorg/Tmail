@@ -7,7 +7,7 @@ Tmail is a mailbot to massmail or act on incoming emails ~ http://tebel.org
 - A mailbot can act on incoming emails, to reply or call other automation APIs accordingly
 - For whatever reasons (eg data security), you prefer not to use email marketing services
 
-Mass emailing originally developed pro bono for a Singapore non-profit as part of its CRM strategy
+Mass email component originally developed pro bono for a Singapore non-profit as part of its CRM strategy
 
 # Set Up
 1. Update mailer.php & massmail.php with your email, name, etc
@@ -35,11 +35,6 @@ Mail API example - parameters to send email by triggering from webservice or web
 ```
 your_website_url/mailer.php?APIKEY=&SENDNAME=&SENDTO=&SENDFROM=&SUBJECT=&MESSAGE=
 ```
-
-# Pipeline
-Feature|Details
-:-----:|:------
-Enhancements|feel free to review and suggest new features
 
 # License
 Tmail is open-source software released under the MIT license
