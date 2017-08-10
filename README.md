@@ -1,5 +1,5 @@
 # Tmail
-Tmail is a mailbot to massmail or act on incoming emails ~ http://tebel.org
+Tmail is a mailbot to massmail or act on incoming emails
 
 ![Sample Mail](https://github.com/tebelorg/Tmail/raw/master/sample.jpg)
 
