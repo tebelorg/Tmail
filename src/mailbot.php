@@ -101,4 +101,16 @@ function get_message($email_content) {
 	return $message;
 }
 
+/* GET ATTACHMENT NAME */
+function get_attachment_name($email_content) {
+	$attachment_filenames = explode("Content-Disposition: attachment;", $email_content);
+	if (empty($attachment_filenames)) return "";
+	$filename = $attachment_filenames[1];
+	$start_pos = strpos($filename,"filename=\"")+10;
+	$filename = substr($filename,$start_pos);
+	$end_pos = strpos($filename,"\"");
+	$filename = substr($filename,0,$end_pos);
+	return $filename;
+}
+
 ?>
