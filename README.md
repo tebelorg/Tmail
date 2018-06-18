@@ -33,7 +33,7 @@ include('massmail.php'); $mail_result = ob_get_contents(); ob_end_clean(); echo 
 
 Mail API example - parameters to send email by triggering from webservice or web browser. Important to set your secret APIKEY parameter, to prevent your mailer instance from being abused through API.
 ```
-your_website_url/mailer.php?APIKEY=&SENDNAME=&SENDTO=&SENDFROM=&SUBJECT=&MESSAGE=
+your_website_url/mailer.php?APIKEY=&SENDNAME=&SENDTO=&SENDFROM=&SUBJECT=&MESSAGE=&ATTACHMENT=
 ```
 
 # License
